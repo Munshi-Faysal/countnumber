@@ -32,7 +32,7 @@ ClickHandleDec =()=>{
   render() {
      var {count, desc} = this.state
     return (
-      <div className='text-center 'style={{margin:"auto", width:"50%"}}>
+      <div className='text-center 'style={{margin:"auto", width:"40%"}}>
         <Card className='bg-dark text-white' style={{ width: '18rem' }}>
         <Card.Body>
             <Card.Title>Control Counting</Card.Title>
