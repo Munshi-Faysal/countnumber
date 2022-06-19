@@ -1,9 +1,15 @@
-import State from "./Components/State";
+
+import Conditional_Rendering from "./Components/Conditional_Rendering/Index";
+import EventBinding from "./Components/Event_Binding/Index";
+import Event_Handler from "./Components/Event_Handler/Index";
 
 function App() {
   return (
     <div >
-     <State />
+      <Conditional_Rendering />
+      <Event_Handler />
+      <EventBinding />
+
     </div>
   );
 }
