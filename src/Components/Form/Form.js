@@ -2,18 +2,19 @@ import {React,useState} from 'react'
 import { Form,Button,Accordion,Alert,Badge,Breadcrumb,ButtonGroup,Card,Carousel,CloseButton,Dropdown,Figure,Image,ListGroup,Modal,Nav, Navbar,Offcanvas, Overlay, Pagination,Placeholder, Popover, ProgressBar, Spinner, Table, Tab, Tooltip, Toast} from 'react-bootstrap';
 
 export default function FormRegister() {
-    const[email,setEmail]=useState("");
-    const[pass,setPass]=useState("");
-    const EmailHandle =(e)=>{
-        setEmail(e.target.value)
-    }
-    const PassHandle =(p)=>{
-        setPass(p.target.value)
+
+    const [user, setUser] = useState({email: '', pass: ''})
+    const {email,pass} = user
+
+    const handleChange =(e)=>{
+        setUser({...user, [e.target.name]: e.target.value});
+        
     }
 const SignUpHandle=(e)=>{
-    const data = {email,pass};
     
+    console.log(user);
     e.preventDefault();
+
 }
 
   return (
@@ -22,18 +23,20 @@ const SignUpHandle=(e)=>{
            <Form onSubmit={SignUpHandle}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control value={email} onChange={EmailHandle} required name="email"  type="email"  placeholder="Enter email" />
+                    <Form.Control  onChange={handleChange} required name="email" type="email"  placeholder="Enter email" />
                     <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control value={pass} onChange={PassHandle} name='pass' type="password" placeholder="Password" />
+                    <Form.Control onChange={handleChange} name='pass' type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className='mb-3'>
-                <Button   type='submit'>Sign Up</Button>
+                <Button type='submit'>Sign Up</Button>
                 </Form.Group>
            </Form>
-           <p> Email :{}</p>
+           <div>
+            <input id="fff" type="text" value={email} readOnly/>
+           </div>
            <p>PassWord : {}</p>
     </div>
   )
